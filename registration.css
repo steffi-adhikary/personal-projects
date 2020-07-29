@@ -1,0 +1,31 @@
+.formContainer{
+    border: 1px solid black;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 50px 0px;
+    margin-top: 50px;
+}
+
+.formHeadingStyle{
+    
+}
+
+.submitBtn{
+    width: 80px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(49, 163, 34);
+    color: white;
+    border: none;
+}
+
+.errorDiv{
+  display: none;
+  color: red;
+}
+
+input{
+    padding: 5px;
+    border: 1px solid black;
+}

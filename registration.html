@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="registration.css">  
+        <script src="registration.js"></script>
+    </head>
+    
+<body>
+    <div id="formContainerId" class="formContainer">
+        <div class="formHeadingStyle">Create Account</div><br><br>
+        <form>
+            <div>
+                <label class="labelStyle">Name</label>
+                <input type="text" placeholder="Enter your name" id="name"><br><br>
+            </div>
+            <div>
+                <label class="labelStyle">Email</label>
+                <input type="text" placeholder="Enter your email ID" id="emailid"><br><br>
+            </div>
+            <div>
+                <label class="labelStyle">Password</label>
+                <input type="text" placeholder="Enter your password" id="pswd"><br><br>
+            </div>
+            <div>
+                <label class="labelStyle">Confirm Password</label>
+                <input type="text" placeholder="Re-enter your password" id="repswd"><br><br>
+            </div>
+            <div id="error-div" class="errorDiv">* All the fields should be filled before submitting</div>
+            <div>
+                <input type="button" id="submit-btn" class="submitBtn" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
