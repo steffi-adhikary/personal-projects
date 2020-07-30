@@ -1,5 +1,11 @@
+function checkIfBothPasswordsAreSame(pass1, pass2){
+    if(pass1 === pass2){
+        document.getElementById("error-misPsw").style.display = "none";
+    }else{
+        document.getElementById("error-misPsw").style.display = "inline";
+    }
+}
 function checkIfValuesAreEmpty(name, email, password, rePassword){
-    
     if (name === ''){
         document.getElementById("error-name").style.display = "inline";
     }else{
@@ -22,8 +28,8 @@ function checkIfValuesAreEmpty(name, email, password, rePassword){
         document.getElementById("error-repsw").style.display = "inline";
     }else{
         document.getElementById("error-repsw").style.display = "none";
+        checkIfBothPasswordsAreSame(password, rePassword);
     }
-
   }
   function validateData(){
       var name = document.getElementById("name").value;
