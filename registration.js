@@ -14,11 +14,20 @@ function hasSpecialChar(myString){
     return spclCharSet.test(myString)
 }
 
+function validateEmail(myEmail){
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if (reg.test(myEmail) == false) 
+    {
+        console.log('Invalid Email Address');
+        return false;
+    }
+    return true;
+}
+
 function checkIfValuesAreEmpty(name, email, password, rePassword){
     if (name === ''){
         document.getElementById("error-name").style.display = "inline";
     }else{
-        // document.getElementById("error-name").style.display = "none";
         if(hasNumber(name)){
             document.getElementById("error-name").style.display = "inline";
             document.getElementById("error-name").innerHTML = "Name can't have numbers. Please re-enter your name";
@@ -33,7 +42,12 @@ function checkIfValuesAreEmpty(name, email, password, rePassword){
     if (email === ''){
         document.getElementById("error-email").style.display = "inline";
     }else{
-        document.getElementById("error-email").style.display = "none";
+        if(!validateEmail(email)){
+            document.getElementById("error-email").style.display = "inline";
+            document.getElementById("error-email").innerHTML = "Invalid email. Please re-enter your name";
+        }else{
+            document.getElementById("error-email").style.display = "none";
+        }
     }
 
     if (password === ''){
@@ -48,7 +62,8 @@ function checkIfValuesAreEmpty(name, email, password, rePassword){
         document.getElementById("error-repsw").style.display = "none";
         checkIfBothPasswordsAreSame(password, rePassword);
     }
-  }
+}
+
   function validateData(){
       var name = document.getElementById("name").value;
       var email = document.getElementById("emailid").value;
