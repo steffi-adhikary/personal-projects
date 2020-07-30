@@ -5,11 +5,29 @@ function checkIfBothPasswordsAreSame(pass1, pass2){
         document.getElementById("error-misPsw").style.display = "inline";
     }
 }
+
+function hasNumber(myString) {
+    return /\d/.test(myString);
+}
+function hasSpecialChar(myString){
+    var spclCharSet = /[~`!_#@$%\^&*+=\-\[\]\\';.,/(){}|\\":<>\?]/g;
+    return spclCharSet.test(myString)
+}
+
 function checkIfValuesAreEmpty(name, email, password, rePassword){
     if (name === ''){
         document.getElementById("error-name").style.display = "inline";
     }else{
-        document.getElementById("error-name").style.display = "none";
+        // document.getElementById("error-name").style.display = "none";
+        if(hasNumber(name)){
+            document.getElementById("error-name").style.display = "inline";
+            document.getElementById("error-name").innerHTML = "Name can't have numbers. Please re-enter your name";
+        }else if(hasSpecialChar(name)){
+            document.getElementById("error-name").style.display = "inline";
+            document.getElementById("error-name").innerHTML = "Name can't have special characters. Please re-enter your name";
+        }else{
+            document.getElementById("error-name").style.display = "none";
+        }
     }
 
     if (email === ''){
