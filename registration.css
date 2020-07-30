@@ -29,3 +29,27 @@ input{
     padding: 5px;
     border: 1px solid black;
 }
+
+.errorDivCommon{
+    color: red;
+}
+
+.errorMisPsw {
+    display: none;
+}
+
+.errorRePsw {
+    display: none;
+}
+
+.errorPsw {
+    display: none;
+}
+
+.errorEmail {
+    display: none;
+}
+
+.errorName {
+    display: none;
+}

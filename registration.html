@@ -12,21 +12,37 @@
         <form>
             <div>
                 <label class="labelStyle">Name</label>
-                <input type="text" placeholder="Enter your name" id="name"><br><br>
+                <input type="text" placeholder="Enter your name" id="name"><br>
+            </div>
+            <div>
+                <label id="error-name" class="errorDivCommon errorName">* Name can't be empty. Please enter your name</label>
+                <br><br>
             </div>
             <div>
                 <label class="labelStyle">Email</label>
-                <input type="text" placeholder="Enter your email ID" id="emailid"><br><br>
+                <input type="text" placeholder="Enter your email ID" id="emailid"><br>
+            </div>
+            <div>
+                <label id="error-email" class="errorDivCommon errorEmail">* Email can't be empty. Please enter your email</label>
+                <br><br>
             </div>
             <div>
                 <label class="labelStyle">Password</label>
-                <input type="text" placeholder="Enter your password" id="pswd"><br><br>
+                <input type="text" placeholder="Enter your password" id="pswd"><br>
+            </div>
+            <div>
+                <label id="error-psw" class="errorDivCommon errorPsw">* Password can't be empty. Please enter your password</label>
+                <br><br>
             </div>
             <div>
                 <label class="labelStyle">Confirm Password</label>
-                <input type="text" placeholder="Re-enter your password" id="repswd"><br><br>
+                <input type="text" placeholder="Re-enter your password" id="repswd"><br>
             </div>
-            <div id="error-div" class="errorDiv">* All the fields should be filled before submitting</div>
+            <div>
+                <label id="error-repsw" class="errorDivCommon errorRePsw">* Confirm password can't be empty. Please enter your confirm password</label>
+                <br>
+            </div>
+            <div id="error-misPsw" class="errorDivCommon errorMisPsw">* Passwords do not match. Please re-enter.</div>
             <div>
                 <input type="button" id="submit-btn" class="submitBtn" value="Submit">
             </div>
