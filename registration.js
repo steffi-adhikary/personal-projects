@@ -6,6 +6,45 @@ function checkIfBothPasswordsAreSame(pass1, pass2){
     }
 }
 
+function checkPswLen(password){
+    var passLen = password.length;
+    if(passLen >= 8){
+        if(hasNumber(password)){
+            // document.getElementById("error-misPsw").style.display = "none";
+            if(hasSpecialChar(password)){
+                if(hasLowerCase(password)){
+                    if(hasUpperCase(password)){
+                        document.getElementById("error-psw").style.display = "none";
+                    }else{
+                        document.getElementById("error-psw").style.display = "inline";
+                        document.getElementById("error-psw").innerHTML = "Password should have at least 1 upper case character";
+                    }
+                }else{
+                    document.getElementById("error-psw").style.display = "inline";
+                    document.getElementById("error-psw").innerHTML = "Password should have at least 1 lower case character";
+                }
+            }else{
+                document.getElementById("error-psw").style.display = "inline";
+                document.getElementById("error-psw").innerHTML = "Password should have at least 1 special character";
+            }
+        }else{
+            document.getElementById("error-psw").style.display = "inline";
+            document.getElementById("error-psw").innerHTML = "Password should have at least 1 number";
+        };
+    }else{
+        document.getElementById("error-psw").style.display = "inline";
+        document.getElementById("error-psw").innerHTML = "Password should be at least 8 characters";
+    }
+}
+
+function hasUpperCase(myString){
+    return /[A-Z]/.test(myString);
+}
+
+function hasLowerCase(myString){
+    return /[a-z]/.test(myString);
+}
+
 function hasNumber(myString) {
     return /\d/.test(myString);
 }
@@ -18,7 +57,6 @@ function validateEmail(myEmail){
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     if (reg.test(myEmail) == false) 
     {
-        console.log('Invalid Email Address');
         return false;
     }
     return true;
@@ -53,7 +91,8 @@ function checkIfValuesAreEmpty(name, email, password, rePassword){
     if (password === ''){
         document.getElementById("error-psw").style.display = "inline";
     }else{
-        document.getElementById("error-psw").style.display = "none";
+        //document.getElementById("error-psw").style.display = "none";
+        checkPswLen(password);
     }
 
     if (rePassword === ''){
