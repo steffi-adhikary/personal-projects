@@ -11,6 +11,10 @@
     
 }
 
+.formHeadingStyle{
+    font-size: 25px;
+}
+
 .submitBtn{
     width: 80px;
     padding: 10px;
@@ -38,10 +42,6 @@ input{
     display: none;
 }
 
-.errorRePsw {
-    display: none;
-}
-
 .errorPsw {
     display: none;
 }
@@ -51,5 +51,9 @@ input{
 }
 
 .errorName {
+    display: none;
+}
+
+.errorRePsw{
     display: none;
 }
