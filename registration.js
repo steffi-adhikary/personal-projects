@@ -113,10 +113,33 @@ function validateConfirmPassword(password, rePassword){
       var email = document.getElementById("emailid").value;
       var password = document.getElementById("pswd").value;
       var rePassword = document.getElementById("repswd").value;
-      var validateNameResult = validateName(name);
-      var validateEmailResult = validateEmail(email);
-      var validatePasswordResult = validatePassword(password);
-      var validateConfirmPasswordResult = validateConfirmPassword(password, rePassword);
+      // var validateNameResult = validateName(name);
+      // var validateEmailResult = validateEmail(email);
+      // var validatePasswordResult = validatePassword(password);
+      // var validateConfirmPasswordResult = validateConfirmPassword(password, rePassword);
+      if(validateName(name) && validateEmail(email) && validatePassword(password) && validateConfirmPassword(password, rePassword)){
+        let req = new XMLHttpRequest();
+        var dataToBeSent = {name: name, email:email, password:password, rePassword:rePassword};
+        var dataToBeSentJSON = JSON.stringify(dataToBeSent);
+        req.onreadystatechange = () => {
+          if (req.readyState == XMLHttpRequest.DONE) {
+            var obj = JSON.parse(req.responseText);
+            if(obj.hasOwnProperty('success')){
+                if(obj.success){
+                    window.location.href = "welcome.html";
+                }else{
+                    document.getElementById("reg-error").style.display = "inline";
+                    document.getElementById("reg-error").innerHTML = obj.message;
+                }
+            }
+          }
+        };
+        
+        req.open("POST", "https://api.jsonbin.io/b", true);
+        req.setRequestHeader("Content-Type", "application/json");
+        req.setRequestHeader("secret-key", "$2b$10$cfwhBocLWBsVPp3blRQlUeTjy/2gAOzKH/6qL7VbprraM4SayGcJO");
+        req.send(dataToBeSentJSON);
+      }
     }
   
   document.addEventListener("DOMContentLoaded", function(){

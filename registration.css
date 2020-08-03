@@ -57,3 +57,8 @@ input{
 .errorRePsw{
     display: none;
 }
+
+.regError{
+    color: red;
+    display:none;
+}
