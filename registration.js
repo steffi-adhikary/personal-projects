@@ -108,15 +108,13 @@ function validateConfirmPassword(password, rePassword){
     }
 }
 
-  function validateData(){
+  function validateData(name, email, password, rePassword){
+      // console.log("getting inside validateData");
+      // console.log("the name is::", name);
       var name = document.getElementById("name").value;
       var email = document.getElementById("emailid").value;
       var password = document.getElementById("pswd").value;
       var rePassword = document.getElementById("repswd").value;
-      // var validateNameResult = validateName(name);
-      // var validateEmailResult = validateEmail(email);
-      // var validatePasswordResult = validatePassword(password);
-      // var validateConfirmPasswordResult = validateConfirmPassword(password, rePassword);
       if(validateName(name) && validateEmail(email) && validatePassword(password) && validateConfirmPassword(password, rePassword)){
         document.getElementById("registrationLoader").style.display = "inline";
         document.getElementById("form-container").classList.add("hazyForm");
@@ -149,7 +147,33 @@ function validateConfirmPassword(password, rePassword){
     }
   
   document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("submit-btn").addEventListener("click", validateData);
+    //document.getElementById("submit-btn").onblur()`
+    // var name = document.getElementById("name").value;
+    // var email = document.getElementById("emailid").value;
+    // var password = document.getElementById("pswd").value;
+    // var rePassword = document.getElementById("repswd").value;
+    document.getElementById("name").addEventListener('blur', (event) => {
+        var name = document.getElementById("name").value;
+        validateName(name);
+    });
+    document.getElementById("emailid").addEventListener('blur', (event) => {
+        var email = document.getElementById("emailid").value;
+        validateEmail(email);
+    });
+    document.getElementById("pswd").addEventListener('blur', (event) => {
+        var password = document.getElementById("pswd").value;
+        validatePassword(password);
+    });
+    document.getElementById("repswd").addEventListener('blur', (event) => {
+        var password = document.getElementById("pswd").value;
+        var rePassword = document.getElementById("repswd").value;
+        validateConfirmPassword(password, rePassword)
+    });
+    
+      // document.getElementById("submit-btn").addEventListener("click", validateData);
+      document.getElementById("submit-btn").addEventListener("click", function(){
+        validateData(name, email, password, rePassword);
+      });
     });
   
   
