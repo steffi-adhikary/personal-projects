@@ -1,10 +1,11 @@
 .formContainer{
     border: 1px solid black;
     width: 600px;
-    margin: auto;
+    margin-left: 28%;
     text-align: center;
     padding: 50px 0px;
     margin-top: 50px;
+    position: absolute;
 }
 
 .formHeadingStyle{
@@ -61,4 +62,36 @@ input{
 .regError{
     color: red;
     display:none;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    position: absolute;
+    border-top: 10px solid #4ba328;
+    width: 50px;
+    height: 50px;
+    margin-left: 47%;
+    margin-top: 240px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 0.7s linear infinite;
+}
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .hide-loader{
+    display:none;
+}
+
+.hazyForm{
+    opacity: 0.3;
 }

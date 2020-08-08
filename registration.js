@@ -118,15 +118,21 @@ function validateConfirmPassword(password, rePassword){
       // var validatePasswordResult = validatePassword(password);
       // var validateConfirmPasswordResult = validateConfirmPassword(password, rePassword);
       if(validateName(name) && validateEmail(email) && validatePassword(password) && validateConfirmPassword(password, rePassword)){
+        document.getElementById("registrationLoader").style.display = "inline";
+        document.getElementById("form-container").classList.add("hazyForm");
         let req = new XMLHttpRequest();
         var dataToBeSent = {name: name, email:email, password:password, rePassword:rePassword};
         var dataToBeSentJSON = JSON.stringify(dataToBeSent);
         req.onreadystatechange = () => {
           if (req.readyState == XMLHttpRequest.DONE) {
+              
+            document.getElementById("registrationLoader").style.display = "none";
             var obj = JSON.parse(req.responseText);
+            //console.log("obj::", obj);
             if(obj.hasOwnProperty('success')){
                 if(obj.success){
                     window.location.href = "welcome.html";
+                    document.getElementById("reg-error").style.display = "none";
                 }else{
                     document.getElementById("reg-error").style.display = "inline";
                     document.getElementById("reg-error").innerHTML = obj.message;
